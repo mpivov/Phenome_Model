@@ -1,13 +1,3 @@
-February 2015
-Rimma Pivovarov
-
-This repository contains code created for Phenome model version 1. More information on the Phenomemodel is in: 
-Pivovarov R, Perotte AJ, Grave E, Angiolillo J, Wiggins CH, Elhadad N. Learning Probabilistic Phenotypes from Heterogeneous Patient Record Data.
-
-
-General notes:
-The input to the inference engine is a few different files that can be created from any EHR dataset. The input is located in the 'data' directory.
-
 --Vocabulary files --
 diag_vocab.txt,med_vocab.txt,lab_vocab.txt,word_vocab.txt
 Each of these files is a list of vocabulary terms for each data type for example.  Example files are located in "data/examples/"
