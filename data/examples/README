@@ -1,3 +1,5 @@
+This directory has two types of files.
+
 --Vocabulary files --
 diag_vocab.txt,med_vocab.txt,lab_vocab.txt,word_vocab.txt
 Each of these files is a list of vocabulary terms for each data type for example.
