@@ -2,3 +2,19 @@ February 2015
 Rimma Pivovarov
 
 This repository contains code created for Phenome model version 1.
+
+
+The input to the inference engine is a few different files that can be created from any EHR dataset.
+
+--Vocabulary files --
+diag_vocab.txt,med_vocab.txt,lab_vocab.txt,word_vocab.txt
+Each of these files is a list of vocabulary terms for each data type for example.  Example files are located in "data/examples/"
+
+--Count files--
+diag_counts.txt,med_counts.txt,lab_counts.txt,word_counts.txt
+Each of these files countains the count of each vocabulary term in each patient record.  All of these files should have the same patient order.
+Example files are located in "data/examples"
+
+
+
+
