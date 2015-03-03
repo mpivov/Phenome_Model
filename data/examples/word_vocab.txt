@@ -2,3 +2,7 @@ patient
 diagnosis
 fell
 bleed
+icu
+nurse
+nh
+hem

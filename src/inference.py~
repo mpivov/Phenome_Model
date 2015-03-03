@@ -1,5 +1,4 @@
-#This is code for the phenome_model inference.  There are some MIMIC-ICU specific things in there (for example each diagnosis code only shows up once since we are looking only at one inpatient stay per patient)
-
+#This is code for the phenome_model inference
 #do all the imports, samplers is the cython code.
 from __future__ import division; import cython, pylab;pylab.ion(); import numpy as np; import scipy.stats as stats; import time; import scipy.special as special; import cPickle as pickle
 import pyximport; pyximport.install(); import samplers as ss
@@ -25,7 +24,7 @@ vs = []; ws = []; xs = []; ys = []
 
 with open('../data/examples/diag_counts.txt') as f:
     for i, line in enumerate(f):
-        data = [int(x.split(':')[0]) for x in line.strip('\n').split(',')[1:]] #count of the icd9 is always 1 because we are only looking at one inpatient stay, we don't need the count
+        data = [int(x.split(':')[0]) for x in line.strip('\n').split(',')[1:]] #count of the icd9 is always 1, we don't need the count, and first one is the hadmid
         vs.append(np.array(data,np.int))
 
 with open('../data/examples/word_counts.txt') as f:
@@ -126,9 +125,8 @@ for iteration in range(0,num_iteration):
     print "done sampling", (time.time()-starttime)/60.
     if iteration%1000==0:
         save_assignments(iteration)
-    # Pick a random phenotype to print out
+    # Pick a random phenotype
     if iteration%5==0:
-        #calculate the log_likelihood every 5 iterations
         ll_trail.append(c_joint_ll(diag_counts,doc_counts,ord_counts,lab_counts))
         print ll_trail[-1],ll_trail
         phen_pick = np.random.randint(P)
@@ -145,8 +143,8 @@ for iteration in range(0,num_iteration):
         with open('../ll_trailfast_'+str(P)+'.data', 'a') as f:
             f.write(str(ll_trail[-1])+'\n')
         if iteration>1000:
-            if float(ll_trail[-1])>=float(max(ll_trail)): #if this is a maximum, save the phenotypes and phenotype assignments.
-                save_assignments(str(iteration)+'max') 
+            if float(ll_trail[-1])>=float(max(ll_trail)):
+                save_assignments(str(iteration)+'max')
                 with open('../ll_maxfast_'+str(P)+str(iteration)+'.txt','w') as g:
                     g.write(str(iteration)+'\n'+str(ll_trail[-1])+'\n')
                     for maxptype in range(P):

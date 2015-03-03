@@ -1,1 +1,5 @@
 250.0-diabetes_mellitus
+042-hiv_disease
+339.00-cluster_headache_syndrome
+346.90-migraine
+005.9-food_poisoning_other

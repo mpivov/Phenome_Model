@@ -1,0 +1,2 @@
+This is where the output of the phenome model writes out results.
+After the first 1000 iterations, the inference code writes out the phenome model settings (learned phenotypes and phenotype assignments) every time a maximum log-likelihood is reached

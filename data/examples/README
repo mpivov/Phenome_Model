@@ -2,12 +2,13 @@ This directory has two types of files.
 
 --Vocabulary files --
 diag_vocab.txt,med_vocab.txt,lab_vocab.txt,word_vocab.txt
-Each of these files is a list of vocabulary terms for each data type for example.
+Each of these files is a list of vocabulary terms for each data type for example.  The diag_vocab.txt uses the ICD-9 hierarchy.
+
 
 --Count files--
 diag_counts.txt,med_counts.txt,lab_counts.txt,word_counts.txt
 Each of these files countains the count of each vocabulary term in each patient record.  All of these files should have the same patient order.
-
+For example, row: "1234, 2:1, 4:1, 2:1" stands for: "Patient 1234 had vocabulary term 2 mentioned once, vocabulary term 4 mentioned once and vocabulary term 2 mentioned 3 times."
 
 
 
